@@ -1,5 +1,4 @@
 const express = require("express");
-const path = require("path");
 
 const app = express();
 
@@ -8,16 +7,12 @@ app.use(express.json());
 
 const PORT = 8080;
 
+const apiNotes = require("./routes/notes");
+const htmlRoutes = require("./routes/htmlRoutes");
+
+//app.use("api/notes", apiNotes);
+app.use("/", htmlRoutes);
+
 app.listen(PORT, () => {
-  console.log(`Server is open on port ${PORT}`);
+  console.log(`Server is listening at port http://localhost:${PORT}`);
 });
-
-app.get("/notes", (req, res) => {
-  res.sendFile(path.join(__dirname, "./db/public/notes.html"));
-});
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./db/public/index.html"));
-});
-
-app.use(("api/notes", require(path.join(__dirname, "./routes/api/notes"))));
