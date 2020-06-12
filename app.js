@@ -19,3 +19,5 @@ app.get("/notes", (req, res) => {
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./db/public/index.html"));
 });
+
+app.use(("api/notes", require(path.join(__dirname, "./routes/api/notes"))));
