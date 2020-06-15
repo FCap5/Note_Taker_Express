@@ -28,18 +28,18 @@ router.post("/notes", (req, res) => {
 });
 
 router.delete("/notes/:id", (req, res) => {
-  const jsonArray = [];
-  console.log(req.params.id);
   json.forEach((note) => {
-    if (req.params.id !== note.id) {
-      jsonArray.push(note);
+    if (req.params.id === note.id) {
+      const index = json.findIndex((ind) => ind.id === req.params.id);
+      json.splice(index, 1);
     }
   });
-  const jsonString = JSON.stringify(jsonArray);
   console.log(json);
-  return fs.writeFileSync("./db/db.json", jsonString, (err) => {
+  fs.writeFileSync("./db/db.json", "", (err) => {
     if (err) throw err;
-    //console.log(jsonString);
+  });
+  fs.writeFileSync("./db/db.json", JSON.stringify(json), (err) => {
+    if (err) throw err;
   });
 });
 module.exports = router;
