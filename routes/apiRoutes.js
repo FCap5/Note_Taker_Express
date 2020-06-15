@@ -9,7 +9,6 @@ const json = require("../db/db");
 //require class file to use functions
 
 router.get("/notes", (req, res) => {
-  console.log("hello");
   return res.sendFile(
     path.join(__dirname, "..", "db", "db.json"),
     "utf8",

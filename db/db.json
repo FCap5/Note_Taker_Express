@@ -1,18 +1,1 @@
-[
-  {
-    "id": "e84e8c59-f646-4a33-8f73-8718c0173b31",
-    "title": "Note",
-    "text": "Note"
-  },
-  {
-    "id": "7bd464b8-21a3-4a84-8ca2-4169364eb910",
-    "title": "Another note",
-    "text": "another note"
-  },
-  {
-    "id": "09e18801-af58-4cae-acfb-254988b7499e",
-    "title": "New Note",
-    "text": "new note"
-  },
-  { "id": "24644682-7b57-4a84-b3df-08966edd85ef", "title": "11", "text": "11" }
-]
+[{"id":"e84e8c59-f646-4a33-8f73-8718c0173b31","title":"Note","text":"Note"},{"id":"7bd464b8-21a3-4a84-8ca2-4169364eb910","title":"Another note","text":"another note"},{"id":"09e18801-af58-4cae-acfb-254988b7499e","title":"New Note","text":"new note"}]
