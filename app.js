@@ -1,4 +1,5 @@
 const express = require("express");
+const fs = require("fs");
 
 const app = express();
 
@@ -7,10 +8,19 @@ app.use(express.json());
 
 const PORT = 8080;
 
-const apiNotes = require("./routes/notes");
-const htmlRoutes = require("./routes/htmlRoutes");
+app.use(express.static("db/public"));
 
-//app.use("api/notes", apiNotes);
+const htmlRoutes = require("./routes/htmlRoutes");
+const apiRoutes = require("./routes/apiRoutes");
+
+/* app.get("/api/notes", (req, res) => {
+  console.log("hello");
+  res.sendFile(__dirname + "/db/db.json", "utf8", (err, data) => {
+    if (err) throw err;
+  });
+}); */
+
+app.use("/api", apiRoutes);
 app.use("/", htmlRoutes);
 
 app.listen(PORT, () => {
