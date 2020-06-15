@@ -6,7 +6,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const PORT = 8080;
+const PORT = 8080 || process.env.PORT;
 
 app.use(express.static("db/public"));
 
