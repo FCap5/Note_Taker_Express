@@ -26,9 +26,10 @@ router.post("/notes", (req, res) => {
   json.push(Note);
 
   //create new file with stringified json array and return
-  return fs.writeFile("./db/db.json", JSON.stringify(json), (err) => {
+  fs.writeFile("./db/db.json", JSON.stringify(json), (err) => {
     if (err) throw err;
   });
+  res.send(json);
 });
 
 //when delete method called
@@ -48,5 +49,7 @@ router.delete("/notes/:id", (req, res) => {
   fs.writeFile("./db/db.json", JSON.stringify(json), (err) => {
     if (err) throw err;
   });
+  res.send(json);
 });
+
 module.exports = router;
